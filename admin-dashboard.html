@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Dashboard - CareerHub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">CareerHub - Admin</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="jobs.html">Jobs</a>
+      <button class="cta" onclick="openPopup('logoutPopup')">Logout</button>
+    </nav>
+  </header>
+
+  <!-- Dashboard Main Content -->
+  <main class="container">
+    <div class="dashboard-container">
+      
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h3>Admin Panel</h3>
+        <p>Manage jobs & applicants</p>
+        <hr>
+        <button class="btn" onclick="openAddJob()">+ Add Job</button>
+      </aside>
+
+      <!-- Main Area -->
+      <section class="main-area">
+        <h2>Overview</h2>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3 id="totalJobs">0</h3>
+            <p>Total Jobs</p>
+          </div>
+          <div class="stat-card">
+            <h3 id="totalApplicants">0</h3>
+            <p>Total Applicants</p>
+          </div>
+          <div class="stat-card">
+            <h3 id="activeJobs">0</h3>
+            <p>Active Jobs</p>
+          </div>
+        </div>
+
+        <!-- Job Management Table -->
+        <h3 style="margin-top: 18px;">Manage Jobs</h3>
+        <div class="table-wrap" style="margin-top: 10px;">
+          <table id="jobsTable" class="table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Company</th>
+                <th>Location</th>
+                <th>Type</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Dynamic job rows will be inserted via script.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Add Job Popup -->
+  <div class="popup" id="addJobPopup">
+    <div class="popup-panel">
+      <button class="popup-close" onclick="closePopup('addJobPopup')">✕</button>
+      <h2>Add New Job</h2>
+
+      <input id="newJobTitle" class="input" placeholder="Job title">
+      <input id="newJobCompany" class="input" placeholder="Company">
+      <input id="newJobLocation" class="input" placeholder="Location">
+      <select id="newJobType" class="input">
+        <option>Full-time</option>
+        <option>Part-time</option>
+        <option>Internship</option>
+      </select>
+
+      <div style="display: flex; gap: 8px; justify-content: flex-end; margin-top: 8px;">
+        <button class="btn primary" onclick="addJobFromAdmin()">Add Job</button>
+        <button class="btn" onclick="closePopup('addJobPopup')">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logout Popup -->
+  <div class="popup" id="logoutPopup">
+    <div class="popup-panel">
+      <button class="popup-close" onclick="closePopup('logoutPopup')">✕</button>
+      <h2>Logout</h2>
+      <p>You have been logged out (demo).</p>
+      <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
+        <button class="btn primary" onclick="closePopup('logoutPopup')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

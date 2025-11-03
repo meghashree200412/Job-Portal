@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Candidate Dashboard - CareerHub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">CareerHub - Candidate</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="jobs.html">Jobs</a>
+      <button class="cta" onclick="openPopup('logoutPopup')">Logout</button>
+    </nav>
+  </header>
+
+  <!-- Main Dashboard -->
+  <main class="container">
+    <div class="dashboard-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h3>Candidate</h3>
+        <ul>
+          <li><a href="#" class="active">Profile</a></li>
+          <li><a href="#">Applied Jobs</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </aside>
+
+      <!-- Main Area -->
+      <section class="main-area">
+        <h2>Personal Information</h2>
+        <p><strong>Name:</strong> John Doe</p>
+        <p><strong>Email:</strong> johndoe@email.com</p>
+        <p><strong>Education:</strong> Bachelor of Computer Applications</p>
+
+        <h3 style="margin-top: 16px;">Applied Jobs</h3>
+        <ul class="applied-jobs">
+          <li>Frontend Developer — SaiKet Systems</li>
+          <li>UI/UX Designer — DesignPro</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <!-- Logout Popup -->
+  <div class="popup" id="logoutPopup">
+    <div class="popup-panel">
+      <button class="popup-close" onclick="closePopup('logoutPopup')">✕</button>
+      <h2>Logout</h2>
+      <p>You have been logged out (demo).</p>
+      <div style="display: flex; justify-content: flex-end; margin-top: 8px;">
+        <button class="btn primary" onclick="closePopup('logoutPopup')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

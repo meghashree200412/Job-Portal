@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CareerHub - Jobs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">CareerHub</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="jobs.html">Jobs</a>
+      <button class="cta" onclick="openPopup('loginPopup')">Login</button>
+      <button class="cta" onclick="openPopup('registerPopup')">Register</button>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <section class="section">
+      <h1>All Jobs</h1>
+
+      <!-- Search and Filter Bar -->
+      <div class="search-bar">
+        <input
+          id="jobsSearch"
+          placeholder="Search job title or company"
+          oninput="filterJobGrid('jobsGrid','jobsSearch','jobsType','jobsLoc')"
+        >
+        <select
+          id="jobsType"
+          onchange="filterJobGrid('jobsGrid','jobsSearch','jobsType','jobsLoc')"
+        >
+          <option value="">All Types</option>
+          <option>Full-time</option>
+          <option>Part-time</option>
+          <option>Internship</option>
+        </select>
+        <select
+          id="jobsLoc"
+          onchange="filterJobGrid('jobsGrid','jobsSearch','jobsType','jobsLoc')"
+        >
+          <option value="">All Locations</option>
+          <option>Bengaluru</option>
+          <option>Mumbai</option>
+          <option>Remote</option>
+          <option>Pune</option>
+        </select>
+      </div>
+
+      <!-- Job Cards Grid -->
+       <div class="cards-grid" id="jobsGrid"></div>
+      <div class="cards-grid" id="jobsGrid"></div>
+      <div class="cards-grid" id="jobsGrid"></div> 
+    </section>
+  </main>
+
+  <!-- Apply Job Popup -->
+  <div class="popup" id="applyPopup">
+    <div class="popup-panel">
+      <button class="popup-close" onclick="closePopup('applyPopup')">✕</button>
+      <h2 id="applyJobTitle">Apply</h2>
+      <form onsubmit="submitApply(event)">
+        <input id="appName" class="input" placeholder="Full name" required>
+        <input id="appEmail" class="input" type="email" placeholder="Email" required>
+        <div class="form-actions">
+          <button class="btn primary" type="submit">Submit</button>
+          <button class="btn" type="button" onclick="closePopup('applyPopup')">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Apply Success Popup -->
+  <div class="popup" id="applySuccess">
+    <div class="popup-panel">
+      <p>Application submitted successfully!</p>
+    </div>
+  </div>
+
+  <!-- Login Popup -->
+  <div class="popup" id="loginPopup">
+    <div class="popup-panel">
+      <button class="popup-close" onclick="closePopup('loginPopup')">✕</button>
+      <h2>Login</h2>
+      <form onsubmit="doLogin(event)">
+        <input id="loginUser" class="input" placeholder="Username (admin or user)" required>
+        <input id="loginPass" class="input" type="password" placeholder="Password" required>
+        <div class="form-actions">
+          <button class="btn primary" type="submit">Login</button>
+          <button class="btn" type="button" onclick="closePopup('loginPopup')">Cancel</button>
+        </div>
+        <p class="hint">
+          Demo: admin/admin123 → Admin, user/user123 → Candidate
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Register Popup -->
+  <div class="popup" id="registerPopup">
+    <div class="popup-panel">
+      <button class="popup-close" onclick="closePopup('registerPopup')">✕</button>
+      <h2>Register</h2>
+      <form onsubmit="doRegister(event)">
+        <input id="regName" class="input" placeholder="Full name">
+        <input id="regEmail" class="input" type="email" placeholder="Email">
+        <input id="regPass" class="input" type="password" placeholder="Password">
+        <div class="form-actions">
+          <button class="btn primary" type="submit">Create account</button>
+          <button class="btn" type="button" onclick="closePopup('registerPopup')">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- JS Script -->
+  <script src="script.js"></script>
+</body>
+</html>

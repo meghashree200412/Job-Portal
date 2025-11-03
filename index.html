@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CareerHub - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">CareerHub</div>
+
+        <!-- Hamburger for mobile -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav class="nav" id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="jobs.html">Jobs</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+
+  <!-- Hero Section -->
+  <main class="container">
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Find Your Dream Job with CareerHub</h1>
+        <p class="lead">
+          Connecting talent with opportunity — explore top companies and apply today.
+        </p>
+        <div class="hero-actions">
+          <button class="btn primary cta"onclick="document.getElementById('recentSection').scrollIntoView({behavior:'smooth'})">
+            Get Started</button>
+          <button class="btn ghost cta" onclick="openPopup('registerPopup')">Join Now</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Jobs -->
+    <section class="section" id="recentSection">
+      <h2>Recent Jobs</h2>
+      <div class="search-bar">
+        <input id="homeSearch" placeholder="Search job title or company">
+        <select id="homeType">
+          <option value="">All Types</option>
+          <option>Full-time</option>
+          <option>Part-time</option>
+          <option>Internship</option>
+        </select>
+        <select id="homeLoc">
+          <option value="">All Locations</option>
+          <option>Bengaluru</option>
+          <option>Mumbai</option>
+          <option>Remote</option>
+          <option>Pune</option>
+        </select>
+      </div>
+      <div class="cards-grid" id="recentJobs"></div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-box">
+      <h3>About CareerHub</h3>
+      <p>
+        CareerHub connects job seekers and employers in one simple platform.
+        Our mission is to simplify hiring with an intuitive interface that helps candidates
+        discover roles and employers find talent faster. We focus on accessibility, relevance,
+        and clarity — making the job search experience seamless for everyone.
+      </p>
+      <p>
+        Whether you're starting your career or scaling your team, CareerHub provides curated
+        opportunities, easy application flows, and tools to manage your job hunt effectively.
+      </p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="col">
+      <h4>Contact</h4>
+      <p>Email: careerhub@gmail.com</p>
+      <span><p>Phone: +91 98765 43210</p></span>
+    </div>
+    <div class="col">
+      <h4>Follow Us</h4>
+      <div class="socials">
+        <a href="#" title="LinkedIn">LinkedIn</a>
+        <a href="#" title="Instagram">Instagram</a>
+        <a href="#" title="Facebook">Facebook</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Apply Job Popup -->
+  <div class="popup" id="applyPopup">
+    <div class="popup-panel">
+      <button class="popup-close" onclick="closePopup('applyPopup')">✕</button>
+      <h2 id="applyJobTitle">Apply</h2>
+      <form onsubmit="submitApply(event)">
+        <input id="appName" class="input" placeholder="Full name" required>
+        <input id="appEmail" class="input" type="email" placeholder="Email" required>
+        <div class="form-actions">
+          <button class="btn primary" type="submit">Submit</button>
+          <button class="btn" type="button" onclick="closePopup('applyPopup')">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Apply Success Popup -->
+  <div class="popup" id="applySuccess">
+    <div class="popup-panel">
+      <p>Application submitted successfully!</p>
+    </div>
+  </div>
+
+  <!-- Login Popup -->
+  <div class="popup" id="loginPopup">
+    <div class="popup-panel">
+      <button class="popup-close" onclick="closePopup('loginPopup')">✕</button>
+      <h2>Login</h2>
+      <form onsubmit="doLogin(event)">
+        <input id="loginUser" class="input" placeholder="Username (admin or user)" required>
+        <input id="loginPass" class="input" type="password" placeholder="Password" required>
+        <div class="form-actions">
+          <button class="btn primary" type="submit">Login</button>
+          <button class="btn" type="button" onclick="closePopup('loginPopup')">Cancel</button>
+        </div>
+        <p class="hint">
+          Demo: admin/admin123 → Admin, user/user123 → Candidate
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Register Popup -->
+  <div class="popup" id="registerPopup">
+    <div class="popup-panel">
+      <button class="popup-close" onclick="closePopup('registerPopup')">✕</button>
+      <h2>Register</h2>
+      <form onsubmit="doRegister(event)">
+        <input id="regName" class="input" placeholder="Full name">
+        <input id="regEmail" class="input" type="email" placeholder="Email">
+        <input id="regPass" class="input" type="password" placeholder="Password">
+        <div class="form-actions">
+          <button class="btn primary" type="submit">Create account</button>
+          <button class="btn" type="button" onclick="closePopup('registerPopup')">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- JS Script -->
+  <script src="script.js"></script>
+</body>
+</html>
